@@ -1,0 +1,60 @@
+<div class="chat-container">
+  <!-- Header -->
+  <div class="chat-header">
+    <div class="header-content">
+      <h1>AI Chatbot Assistant</h1>
+      <p>Powered by Google Gemini</p>
+    </div>
+    <button class="clear-btn" (click)="clearChat()" [disabled]="messages.length === 0">
+      Clear Chat
+    </button>
+  </div>
+
+  <!-- Messages Area -->
+  <div class="messages-container" #messagesContainer>
+    <div *ngIf="messages.length === 0" class="empty-state">
+      <h2>Welcome!</h2>
+      <p>Start a conversation by typing a message below.</p>
+    </div>
+
+    <app-message
+      *ngFor="let message of messages"
+      [message]="message">
+    </app-message>
+
+    <div *ngIf="isLoading" class="loading-indicator">
+      <div class="typing-dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <span>AI is typing...</span>
+    </div>
+
+    <div *ngIf="error" class="error-message">
+      ⚠️ {{ error }}
+    </div>
+  </div>
+
+  <!-- Input Area -->
+  <div class="input-container">
+    <textarea
+      [(ngModel)]="userInput"
+      (keypress)="onKeyPress($event)"
+      placeholder="Type your message here..."
+      [disabled]="isLoading"
+      rows="3">
+    </textarea>
+    <button
+      (click)="sendMessage()"
+      [disabled]="!userInput.trim() || isLoading"
+      class="send-btn">
+      {{ isLoading ? 'Sending...' : 'Send' }}
+    </button>
+  </div>
+
+  <!-- Footer -->
+  <div class="chat-footer">
+    <p>Developed by <strong>Akhil Narayanoju</strong></p>
+  </div>
+</div>
