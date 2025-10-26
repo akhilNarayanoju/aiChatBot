@@ -33,7 +33,7 @@ An intelligent chatbot application built with Angular 19 and Google's Gemini AI,
 
 1. **Clone the repository**
    ```bash
-   git clone <your-repo-url>
+   git clone https://github.com/akhilnarayanoju/ai-chatbot.git
    cd ai-chatbot
    ```
 
@@ -215,7 +215,10 @@ MIT License - Free to use for personal and commercial projects
 
 ## Author
 
-Your Name
+**Akhil Narayanoju**
+
+- GitHub: [@akhilnarayanoju](https://github.com/akhilnarayanoju)
+- LinkedIn: [Akhil Narayanoju](https://linkedin.com/in/akhilnarayanoju)
 
 ## Acknowledgments
 
@@ -225,6 +228,15 @@ Your Name
 
 ---
 
-**Need Help?** Open an issue or reach out!
+**Need Help?** Open an issue on [GitHub](https://github.com/akhilnarayanoju/ai-chatbot/issues) or reach out!
 
-**Live Demo:** [Add your deployed URL here]
+**Live Demo:** [View Live Application](https://your-app-name.netlify.app) _(Update this URL after deployment)_
+
+---
+
+## Badges
+
+![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg)
+![Angular](https://img.shields.io/badge/Angular-19.0-red.svg)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.6-blue.svg)

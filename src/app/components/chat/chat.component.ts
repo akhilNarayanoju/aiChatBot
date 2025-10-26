@@ -103,4 +103,8 @@ export class ChatComponent implements OnInit, AfterViewChecked {
       this.sendMessage();
     }
   }
+
+  trackByMessageId(index: number, message: Message): string {
+    return message.id;
+  }
 }

@@ -1,29 +1,43 @@
-<div class="chat-container">
+<div class="chat-container" role="main">
   <!-- Header -->
-  <div class="chat-header">
+  <header class="chat-header" role="banner">
     <div class="header-content">
-      <h1>AI Chatbot Assistant</h1>
-      <p>Powered by Google Gemini</p>
+      <h1 id="chat-title">AI Chatbot Assistant</h1>
+      <p aria-label="Powered by Google Gemini AI">Powered by Google Gemini</p>
     </div>
-    <button class="clear-btn" (click)="clearChat()" [disabled]="messages.length === 0">
+    <button
+      class="clear-btn"
+      (click)="clearChat()"
+      [disabled]="messages.length === 0"
+      aria-label="Clear all chat messages"
+      [attr.aria-disabled]="messages.length === 0"
+      type="button">
       Clear Chat
     </button>
-  </div>
+  </header>
 
   <!-- Messages Area -->
-  <div class="messages-container" #messagesContainer>
-    <div *ngIf="messages.length === 0" class="empty-state">
+  <section
+    class="messages-container"
+    #messagesContainer
+    role="log"
+    aria-live="polite"
+    aria-atomic="false"
+    aria-labelledby="chat-title"
+    aria-relevant="additions">
+    <div *ngIf="messages.length === 0" class="empty-state" role="status">
       <h2>Welcome!</h2>
       <p>Start a conversation by typing a message below.</p>
     </div>
 
     <app-message
-      *ngFor="let message of messages"
-      [message]="message">
+      *ngFor="let message of messages; trackBy: trackByMessageId"
+      [message]="message"
+      role="article">
     </app-message>
 
-    <div *ngIf="isLoading" class="loading-indicator">
-      <div class="typing-dots">
+    <div *ngIf="isLoading" class="loading-indicator" role="status" aria-live="polite">
+      <div class="typing-dots" aria-hidden="true">
         <span></span>
         <span></span>
         <span></span>
@@ -31,30 +45,39 @@
       <span>AI is typing...</span>
     </div>
 
-    <div *ngIf="error" class="error-message">
-      ⚠️ {{ error }}
+    <div *ngIf="error" class="error-message" role="alert" aria-live="assertive">
+      <span aria-hidden="true">⚠️</span> {{ error }}
     </div>
-  </div>
+  </section>
 
   <!-- Input Area -->
-  <div class="input-container">
+  <form class="input-container" (submit)="sendMessage(); $event.preventDefault()" role="form">
+    <label for="user-message-input" class="visually-hidden">Type your message</label>
     <textarea
+      id="user-message-input"
       [(ngModel)]="userInput"
+      name="userMessage"
       (keypress)="onKeyPress($event)"
       placeholder="Type your message here..."
       [disabled]="isLoading"
-      rows="3">
+      rows="3"
+      aria-label="Type your message to the AI chatbot"
+      aria-required="true"
+      [attr.aria-invalid]="!userInput.trim() && userInput.length > 0">
     </textarea>
     <button
+      type="submit"
       (click)="sendMessage()"
       [disabled]="!userInput.trim() || isLoading"
-      class="send-btn">
+      class="send-btn"
+      aria-label="Send message to AI chatbot"
+      [attr.aria-busy]="isLoading">
       {{ isLoading ? 'Sending...' : 'Send' }}
     </button>
-  </div>
+  </form>
 
   <!-- Footer -->
-  <div class="chat-footer">
+  <footer class="chat-footer" role="contentinfo">
     <p>Developed by <strong>Akhil Narayanoju</strong></p>
-  </div>
+  </footer>
 </div>

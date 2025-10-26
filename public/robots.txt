@@ -1,0 +1,10 @@
+# robots.txt for AI Chatbot
+
+User-agent: *
+Allow: /
+
+# Disallow admin or private paths (if any in future)
+# Disallow: /admin/
+
+# Sitemap (update with your actual domain when deployed)
+# Sitemap: https://your-domain.com/sitemap.xml

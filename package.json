@@ -1,12 +1,40 @@
 {
   "name": "ai-chatbot",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "An intelligent chatbot application built with Angular 19 and Google's Gemini AI, featuring real-time conversations and chat history persistence",
+  "author": "Akhil Narayanoju",
+  "license": "MIT",
+  "keywords": [
+    "angular",
+    "chatbot",
+    "ai",
+    "gemini",
+    "artificial-intelligence",
+    "typescript",
+    "angular-material",
+    "chat-application",
+    "conversational-ai"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/akhilnarayanoju/ai-chatbot.git"
+  },
+  "homepage": "https://github.com/akhilnarayanoju/ai-chatbot#readme",
+  "bugs": {
+    "url": "https://github.com/akhilnarayanoju/ai-chatbot/issues"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:prod": "ng build --configuration production",
+    "build:analyze": "ng build --configuration production --stats-json",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "test:coverage": "ng test --code-coverage",
+    "lint": "ng lint",
+    "format": "prettier --write \"src/**/*.{ts,html,css,scss,json}\"",
+    "format:check": "prettier --check \"src/**/*.{ts,html,css,scss,json}\""
   },
   "private": true,
   "dependencies": {
